@@ -1,0 +1,1089 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para minha Julieta 💜</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #09000f;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           FUNDO
+        ========================= */
+
+        .tela {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at center,
+                #711db5 0%,
+                #3a075c 35%,
+                #190025 65%,
+                #09000f 100%);
+        }
+
+        .conteudo {
+            max-width: 850px;
+            width: 100%;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* =========================
+           ESTRELAS
+        ========================= */
+
+        .estrela {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #ead5ff;
+            box-shadow: 0 0 15px #c084fc;
+            animation: brilho 3s infinite;
+        }
+
+        .estrela:nth-child(1) {
+            top: 15%;
+            left: 10%;
+        }
+
+        .estrela:nth-child(2) {
+            top: 25%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .estrela:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .estrela:nth-child(4) {
+            bottom: 15%;
+            right: 20%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes brilho {
+            0%, 100% {
+                opacity: .2;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(2.5);
+            }
+        }
+
+        /* =========================
+           CORAÇÕES
+        ========================= */
+
+        .coracao {
+            position: absolute;
+            bottom: -50px;
+            font-size: 25px;
+            opacity: .6;
+            animation: subir 7s linear infinite;
+        }
+
+        .c1 {
+            left: 10%;
+        }
+
+        .c2 {
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .c3 {
+            left: 55%;
+            animation-delay: 4s;
+        }
+
+        .c4 {
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: .7;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           TEXTOS
+        ========================= */
+
+        .pequeno {
+            color: #eadcff;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .pequeno span {
+            color: #d8a4ff;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            text-shadow:
+                0 0 10px #a855f7,
+                0 0 25px #9333ea,
+                0 0 45px #7e22ce;
+        }
+
+        .subtitulo {
+            color: #eadcff;
+            font-size: 19px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* =========================
+           PRESENTE
+        ========================= */
+
+        .presente {
+            width: 190px;
+            height: 180px;
+            position: relative;
+            margin: 30px auto;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .presente:hover {
+            transform: scale(1.08);
+            filter: drop-shadow(0 0 30px #c084fc);
+        }
+
+        .caixa {
+            position: absolute;
+            width: 150px;
+            height: 100px;
+            left: 20px;
+            bottom: 0;
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            border-radius: 6px;
+        }
+
+        .tampa {
+            position: absolute;
+            width: 170px;
+            height: 35px;
+            left: 10px;
+            top: 40px;
+            background: #a855f7;
+            border-radius: 5px;
+            z-index: 3;
+            transition: 1s;
+        }
+
+        .fita {
+            position: absolute;
+            width: 25px;
+            height: 100%;
+            left: 62px;
+            background: #eadcff;
+        }
+
+        .fita-tampa {
+            position: absolute;
+            width: 25px;
+            height: 35px;
+            left: 72px;
+            background: #eadcff;
+        }
+
+        .laco {
+            position: absolute;
+            width: 55px;
+            height: 35px;
+            top: 5px;
+            background: #eadcff;
+            border-radius: 50%;
+            z-index: 5;
+            transition: 1s;
+        }
+
+        .laco-esq {
+            left: 38px;
+            transform: rotate(25deg);
+        }
+
+        .laco-dir {
+            right: 38px;
+            transform: rotate(-25deg);
+        }
+
+        .aberto .tampa {
+            transform: translateY(-85px) rotate(-8deg);
+        }
+
+        .aberto .laco {
+            opacity: 0;
+            transform: translateY(-80px);
+        }
+
+        .clique {
+            color: #eadcff;
+            font-weight: bold;
+            animation: piscar 1.5s infinite;
+        }
+
+        @keyframes piscar {
+            50% {
+                opacity: .4;
+            }
+        }
+
+        /* =========================
+           SURPRESA
+        ========================= */
+
+        #surpresa {
+            display: none;
+            animation: aparecer 1s ease;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .botao {
+            border: none;
+            padding: 16px 30px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 20px #9333ea;
+            transition: .3s;
+        }
+
+        .botao:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 35px #c084fc;
+        }
+
+        /* =========================
+           HISTÓRIA
+        ========================= */
+
+        #historia {
+            display: none;
+            min-height: 100vh;
+            padding: 80px 20px;
+            text-align: center;
+
+            background:
+                linear-gradient(180deg,
+                #190025,
+                #2c0047,
+                #100018);
+        }
+
+        .historia-box {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .historia-box h2 {
+            font-size: 40px;
+            color: #d8a4ff;
+            text-shadow: 0 0 20px #9333ea;
+            margin-bottom: 30px;
+        }
+
+        .historia-box p {
+            color: #eadcff;
+            font-size: 19px;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .destaque {
+            color: #d8a4ff;
+            font-weight: bold;
+        }
+
+        /* =========================
+           MÚSICA
+        ========================= */
+
+        .musica {
+            margin: 40px auto;
+            padding: 30px;
+            max-width: 600px;
+            border: 1px solid #9333ea;
+            border-radius: 20px;
+            background: rgba(20, 0, 35, .7);
+            box-shadow: 0 0 25px rgba(147, 51, 234, .35);
+        }
+
+        .musica h3 {
+            color: #d8a4ff;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .musica p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .botao-musica {
+            display: inline-block;
+            text-decoration: none;
+            padding: 16px 28px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            box-shadow: 0 0 20px #9333ea;
+            transition: .3s;
+        }
+
+        .botao-musica:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 35px #c084fc;
+        }
+
+        /* =========================
+           CARTA
+        ========================= */
+
+        .carta {
+            margin-top: 50px;
+            padding: 35px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #230038, #3b0860);
+            border: 1px solid #a855f7;
+            box-shadow: 0 0 25px rgba(168, 85, 247, .3);
+        }
+
+        .carta h3 {
+            color: #d8a4ff;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .carta p {
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           PEDIDO
+        ========================= */
+
+        #pedido {
+            display: none;
+            min-height: 100vh;
+            padding: 80px 20px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background:
+                radial-gradient(circle,
+                #701bb3,
+                #31004f 50%,
+                #09000f 100%);
+        }
+
+        .pedido-box {
+            max-width: 760px;
+            width: 100%;
+            padding: 45px 30px;
+            background: rgba(20, 0, 35, .9);
+            border: 1px solid #b45cff;
+            border-radius: 25px;
+            box-shadow:
+                0 0 30px #7e22ce,
+                inset 0 0 25px rgba(168, 85, 247, .15);
+        }
+
+        .anel {
+            font-size: 80px;
+            animation: pulsar 1.5s infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes pulsar {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        .pedido-box h2 {
+            font-size: 42px;
+            line-height: 1.4;
+            margin-bottom: 25px;
+            text-shadow: 0 0 20px #a855f7;
+        }
+
+        .pedido-box h2 span {
+            color: #d8a4ff;
+        }
+
+        .mensagem {
+            color: #eadcff;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .pergunta {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 35px 0;
+            text-shadow: 0 0 20px #a855f7;
+        }
+
+        /* =========================
+           BOTÕES
+        ========================= */
+
+        .botoes {
+            position: relative;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        #nao {
+            z-index: 20;
+        }
+
+        /* =========================
+           RESPOSTA
+        ========================= */
+
+        #resposta {
+            display: none;
+            animation: aparecer 1s ease;
+            margin-top: 30px;
+        }
+
+        #resposta h3 {
+            font-size: 42px;
+            color: #e9d5ff;
+            text-shadow: 0 0 25px #a855f7;
+        }
+
+        #resposta p {
+            margin-top: 15px;
+            color: #eadcff;
+            font-size: 20px;
+        }
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .pedido-box h2 {
+                font-size: 30px;
+            }
+
+            .pergunta {
+                font-size: 25px;
+            }
+
+            .mensagem {
+                font-size: 17px;
+            }
+
+            .botoes {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PRIMEIRA TELA -->
+
+    <div class="tela">
+
+        <div class="estrela"></div>
+        <div class="estrela"></div>
+        <div class="estrela"></div>
+        <div class="estrela"></div>
+
+        <div class="coracao c1">💜</div>
+        <div class="coracao c2">💜</div>
+        <div class="coracao c3">💜</div>
+        <div class="coracao c4">💜</div>
+
+        <div class="conteudo">
+
+            <p class="pequeno">
+                Uma surpresa especial para
+                <span>Julieta</span> 💜
+            </p>
+
+            <h1>
+                Tenho um presente para você 🎁
+            </h1>
+
+            <p class="subtitulo">
+                Mas você precisa abrir para descobrir...
+            </p>
+
+            <!-- PRESENTE -->
+
+            <div
+                class="presente"
+                id="presente"
+                onclick="abrirPresente()">
+
+                <div class="laco laco-esq"></div>
+                <div class="laco laco-dir"></div>
+
+                <div class="tampa">
+                    <div class="fita-tampa"></div>
+                </div>
+
+                <div class="caixa">
+                    <div class="fita"></div>
+                </div>
+
+            </div>
+
+            <p class="clique" id="clique">
+                🎁 Clique na caixinha 🎁
+            </p>
+
+            <!-- SURPRESA -->
+
+            <div id="surpresa">
+
+                <p class="subtitulo">
+                    Você abriu! 🥹💜
+                    <br><br>
+                    Agora quero te mostrar uma coisa...
+                </p>
+
+                <button
+                    class="botao"
+                    onclick="mostrarHistoria()">
+
+                    Continuar 💜
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HISTÓRIA -->
+
+    <section id="historia">
+
+        <div class="historia-box">
+
+            <h2>
+                Um pedacinho da nossa história 💜
+            </h2>
+
+            <p>
+                Julieta, antes de fazer uma pergunta
+                muito importante, eu queria lembrar
+                de um momento.
+            </p>
+
+            <p>
+                Você lembra da
+                <span class="destaque">
+                    primeira vez que a gente saiu junto?
+                </span>
+            </p>
+
+            <p>
+                A gente foi no
+                <span class="destaque">CSU</span>
+                e depois foi no
+                <span class="destaque">
+                    cemitério com a Evy e a Ana Bia
+                </span>
+                😂💜
+            </p>
+
+            <p>
+                Pode parecer só um rolê aleatório,
+                mas para mim aquele dia ficou marcado.
+                Foi um dos primeiros momentos que vivi
+                ao seu lado.
+            </p>
+
+            <p>
+                E olha onde a gente chegou depois
+                daquele dia... 🥹💜
+            </p>
+
+
+            <!-- MÚSICA -->
+
+            <div class="musica">
+
+                <h3>
+                    🎵 Uma música para nós
+                </h3>
+
+                <p>
+                    Garota de Ipanema 💜
+                </p>
+
+                <a
+                    href="https://www.youtube.com/results?search_query=Garota+de+Ipanema"
+                    target="_blank"
+                    class="botao-musica">
+
+                    🎵 Ouvir Garota de Ipanema
+
+                </a>
+
+            </div>
+
+
+            <!-- CARTA -->
+
+            <div class="carta">
+
+                <h3>
+                    💌 Para você, Julieta
+                </h3>
+
+                <p>
+                    Eu não sei exatamente quando tudo começou,
+                    mas sei que hoje você é uma pessoa muito
+                    especial para mim.
+                </p>
+
+                <p>
+                    Eu gosto de estar com você, conversar com você,
+                    rir com você e guardar cada momento que a gente
+                    vive junto.
+                </p>
+
+                <p>
+                    E eu queria que isso fosse só o começo.
+                </p>
+
+                <p>
+                    Por isso, agora eu preciso te fazer
+                    uma pergunta...
+                </p>
+
+                <br>
+
+                <button
+                    class="botao"
+                    onclick="mostrarPedido()">
+
+                    Fazer a pergunta 💍
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PEDIDO -->
+
+    <section id="pedido">
+
+        <div class="pedido-box">
+
+            <div class="anel">
+                💍
+            </div>
+
+            <h2>
+                Julieta...
+                <br>
+                <span>quer namorar comigo?</span>
+            </h2>
+
+            <p class="mensagem">
+
+                Eu quero continuar vivendo momentos
+                com você.
+
+                <br><br>
+
+                Quero rir com você, conversar com você,
+                estar ao seu lado e criar muitas outras
+                lembranças.
+
+                <br><br>
+
+                Então eu só preciso saber uma coisa...
+
+            </p>
+
+            <div class="pergunta">
+                Você aceita ser minha namorada? 💜
+            </div>
+
+
+            <div class="botoes">
+
+                <button
+                    class="botao"
+                    onclick="responderSim()">
+
+                    SIM! 💜
+
+                </button>
+
+                <button
+                    class="botao"
+                    id="nao"
+                    onmouseover="fugir()"
+                    onclick="clicouNao()">
+
+                    NÃO 😭
+
+                </button>
+
+            </div>
+
+
+            <!-- RESPOSTA SIM -->
+
+            <div id="resposta">
+
+                <h3>
+                    EU SABIA! 🥹💜
+                </h3>
+
+                <p>
+                    Agora você oficialmente é minha namorada! 💜
+                </p>
+
+                <p>
+                    Que esse seja apenas o começo
+                    da nossa história. ✨
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        /* ABRIR PRESENTE */
+
+        function abrirPresente() {
+
+            const presente =
+                document.getElementById("presente");
+
+            const clique =
+                document.getElementById("clique");
+
+            const surpresa =
+                document.getElementById("surpresa");
+
+            presente.classList.add("aberto");
+
+            clique.style.display = "none";
+
+            setTimeout(function () {
+
+                surpresa.style.display = "block";
+
+            }, 900);
+        }
+
+
+        /* MOSTRAR HISTÓRIA */
+
+        function mostrarHistoria() {
+
+            const historia =
+                document.getElementById("historia");
+
+            historia.style.display = "block";
+
+            setTimeout(function () {
+
+                historia.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }, 100);
+        }
+
+
+        /* MOSTRAR PEDIDO */
+
+        function mostrarPedido() {
+
+            const pedido =
+                document.getElementById("pedido");
+
+            pedido.style.display = "flex";
+
+            setTimeout(function () {
+
+                pedido.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }, 100);
+        }
+
+
+        /* BOTÃO NÃO FOGE 😂 */
+
+        let tentativas = 0;
+
+        function fugir() {
+
+            const botao =
+                document.getElementById("nao");
+
+            tentativas++;
+
+            const frases = [
+
+                "NÃO 😭",
+                "EI! 😂",
+                "NEM TENTA 😭",
+                "TEM CERTEZA? 🥺",
+                "OLHA O SIM ALI 👀",
+                "PARA DE TENTAR 😂",
+                "VOCÊ NÃO ESCAPA 💜",
+                "CLICA NO SIM 😭💜",
+                "EU SEI QUE VOCÊ QUER 😂💜"
+
+            ];
+
+            botao.innerText =
+                frases[
+                    Math.min(
+                        tentativas,
+                        frases.length - 1
+                    )
+                ];
+
+
+            const largura =
+                window.innerWidth;
+
+            const altura =
+                window.innerHeight;
+
+            const x =
+                Math.random() *
+                Math.max(100, largura - 180);
+
+            const y =
+                Math.random() *
+                Math.max(100, altura - 100);
+
+            botao.style.position = "fixed";
+
+            botao.style.left = x + "px";
+
+            botao.style.top = y + "px";
+        }
+
+
+        /* SE CLICAR NO NÃO */
+
+        function clicouNao() {
+
+            /*
+                TROQUE PELO SEU NÚMERO.
+
+                Exemplo:
+                5541999999999
+            */
+
+            const numero =
+                "554195251074";
+
+            const mensagem =
+                "Julieta conseguiu clicar no NÃO 😂😭💜";
+
+            const link =
+                "https://wa.me/" +
+                numero +
+                "?text=" +
+                encodeURIComponent(mensagem);
+
+            window.open(link, "_blank");
+        }
+
+
+        /* CLICOU NO SIM */
+
+        function responderSim() {
+
+            const resposta =
+                document.getElementById("resposta");
+
+            resposta.style.display = "block";
+
+            const botaoNao =
+                document.getElementById("nao");
+
+            botaoNao.style.display = "none";
+
+            criarCoracoes();
+
+            setTimeout(function () {
+
+                resposta.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }, 300);
+        }
+
+
+        /* CHUVA DE CORAÇÕES 💜 */
+
+        function criarCoracoes() {
+
+            for (let i = 0; i < 50; i++) {
+
+                const coracao =
+                    document.createElement("div");
+
+                coracao.innerHTML = "💜";
+
+                coracao.style.position = "fixed";
+
+                coracao.style.left =
+                    Math.random() * 100 + "%";
+
+                coracao.style.bottom =
+                    "-50px";
+
+                coracao.style.fontSize =
+                    (20 + Math.random() * 35) + "px";
+
+                coracao.style.zIndex = "9999";
+
+                coracao.style.pointerEvents = "none";
+
+                document.body.appendChild(coracao);
+
+                const duracao =
+                    3 + Math.random() * 4;
+
+                coracao.animate(
+                    [
+                        {
+                            transform:
+                                "translateY(0) rotate(0deg)",
+                            opacity: 1
+                        },
+
+                        {
+                            transform:
+                                "translateY(-110vh) rotate(360deg)",
+                            opacity: 0
+                        }
+                    ],
+                    {
+                        duration:
+                            duracao * 1000,
+
+                        easing:
+                            "linear"
+                    }
+                );
+
+                setTimeout(function () {
+
+                    coracao.remove();
+
+                }, duracao * 1000);
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
